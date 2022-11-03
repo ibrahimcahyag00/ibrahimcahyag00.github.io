@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUGAS 5</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Raleway:wght@500&display=swap"
+        rel="stylesheet">
+    <script src="tailwind.config.js"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          header {
+            @apply pt-5;
+            background: linear-gradient(180deg, #FFFFFF 0%, #EAF4FF 46.08%, #FFFFFF 100%);
+          }
+          content3 {
+            @apply pt-5;
+            background: linear-gradient(180deg, #FFFFFF 0%, #EAF4FF 46.08%, #FFFFFF 100%);
+          }
+          nav a {
+            @apply hover:underline hover:text-primary font-nav;
+          }
+          .button-primary {
+            @apply bg-primary text-white px-5 py-2 rounded-full;
+          }
+         
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container mx-auto relative">
+            <div class=" flex flex-col lg:flex-row gap-5 ">
+                <!-- SEARCH -->
+                <div id="mySearch"
+                    class=" bg-cyan-400 w-full h-20 z-20 flex justify-center align-center items-center absolute top-[-20px] hidden bg-cover">
+                    <div class="flex justify-center items-center pt-7">
+                        <button onclick="search()">
+                            <img class="bg-white  pt-px pr-2 pl-0.5 pb-1" src="assets/foto/search.svg" alt="">
+                        </button>
+                        <input class="flex justify-center align-center items-center border-hidden mt-px  w-2/5"
+                            type="text" placeholder="Search...">
+                        <button onclick="search()">
+                            <img class="w-5 h5 ml-8" src="assets/foto/close-removebg-preview.png" alt="">
+                        </button>
+
+                    </div>
+                </div>
+                <!-- SEARCH END -->
+                <!-- DIV 1 -->
+                <div class=" flex gap-6 justify-between items-center px-4 py-4 lg:py-0">
+                    <div>
+                        <a href="#" class="uppercase font-semibold text-white ">
+                            <img src="assets/foto/logo.svg" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <button onclick="menu()" class="hamburger focus:outline-none text-white block lg:hidden ">
+                            <img class="w-5 h-5" src="assets/foto/hamburger.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <!-- absolute left-[-400px] -->
+                <!-- DIV 2 -->
+                <div id="myMenu"
+                    class="flex gap-5 flex-col lg:flex-row justify-between w-full max-sm:absolute max-sm:z-10 max-sm:right-0 max-sm:top-14 max-sm:hidden max-sm:bg-white max-sm:pb-14 max-sm:pt-14">
+                    <div class="menu flex flex-col lg:flex-row gap-6 items-center">
+                        <a href="#" class="block">Home</a>
+                        <a href="#" class="block">About</a>
+                        <a href="#" class="block">Services</a>
+                        <a href="#" class="block">Our Work</a>
+                        <a href="#" class="block">Blog</a>
+                        <a href="#" class="block">Resource</a>
+                        <a href="#" class="block">Contact</a>
+                    </div>
+                    <div class="flex flex-col lg:flex-row max-sm:mt-3 gap-6 items-center justify-center ">
+                        <div class="max-sm:absolute max-sm:top-[-32px] max-sm:right-14 z-10">
+                            <button onclick="search()">
+                                <img src="assets/foto/search.svg" alt="">
+                            </button>
+
+                        </div>
+
+                        <button id="btnNav" class="button-primary">Get Started</button>
+
+                        <!-- POP UP BUTTON -->
+                        <div id="popup" class="hidden fixed z-30 pt-[100px] left-0 top-0 w-full h-full overflow-auto bg-black bg-slate-300/50">
+                            <!-- ISI POP UP -->
+                            <div class="bg-white m-auto max-sm:m-hidden p-20 border-2 w-4/5 border-slate-400 ">
+                                <button id="close" class="close float-right">
+                                    <img class="w-5 h-5" src="assets/foto/close-removebg-preview.png" alt="">
+                                </button>
+                                <!-- CARD 2 -->
+                                <div class="container  mx-auto">
+     
+                                    <div class="grid grid-cols-3 grid-rows-2 gap-6 max-sm:gap-2 max-sm:grid-cols-2 max-sm:grid-rows-3 max-sm:flex flex flex-col lg:flex-row">
+                                        <div
+                                            class="bg-white text-black text-center text-5xl rounded-lg h-30 items-center object-center justify-items-center content-center max-sm:bor">
+                                            <div class="flex justify-center">
+                                                <img class=" pt-14 pb-5 " src="assets/foto/Shopify logo.png" alt="">
+                                            </div>
+                                            <h2 class="text-xl font-bold mb-5 max-sm:text-lg">Shopify Theme Development</h2>
+                                            <p class="text-lg mb-14 font-normal max-sm:mb-5 max-sm:text-sm">Start from 700 USD for project base
+                                                or 35 USD per hour</p>
+                                        </div>
+                                        <div class="bg-white text-black text-center text-5xl rounded-lg h-30">
+                                            <div class="flex justify-center">
+                                                <img class="pt-14 pb-5" src="assets/foto/PHP logo.png" alt="">
+                                            </div>
+                                            <h2 class="text-xl font-bold mb-5 max-sm:text-lg">Web Application Development</h2>
+                                            <p class="text-lg mb-14 font-normal max-sm:mb-5 max-sm:text-sm">Start from 1000 USD for project base
+                                                or 35 USD per hour</p>
+                                        </div>
+                                        <div class="bg-white text-black text-center text-5xl rounded-lg h-30 row-span-2">
+                                            <div class="flex justify-center">
+                                                <img class="pt-12 pb-8" src="assets/foto/Group 1597882700.png" alt="">
+                                            </div>
+                                            <h2 class="text-2xl font-bold mb-5 max-sm:text-xl">Assistans Services</h2>
+                                            <p class="text-lg font-normal mb-32 max-sm:mb-5">Start from 33 USD for project base or 35 USD per hour</p>
+                                            <h5 class="text-xl font-normal text-neutral-500 mb-4 max-sm:text-lg">More Services :</h5>
+                                            <h5 class="text-xl font-bold max-sm:text-lg">Technical Assistans</h5>
+                                            <h5 class="text-xl font-bold max-sm:text-lg">Support Assistans</h5>
+                                            <h5 class="text-xl font-bold max-sm:text-lg">VIP Assistans</h5>
+                                            <h5 class="text-xl font-bold max-sm:text-lg">Social Media Admin</h5>
+                                        </div>
+                                        <div class="bg-white text-black text-center text-5xl rounded-lg h-30">
+                                            <div class="flex justify-center">
+                                                <img class="pt-14 pb-5" src="assets/foto/wordpress-lockup logo.png" alt="">
+                                            </div>
+                        
+                                            <h2 class="text-xl font-bold mb-5 max-sm:text-lg">WordPress Theme Development</h2>
+                                            <p class="text-lg mb-14 font-normal max-sm:text-sm">Start from 600 USD for project base or 35 USD
+                                                per hour</p>
+                                        </div>
+                                        <div class="bg-white text-black text-center text-5xl rounded-lg h-30">
+                                            <div class="flex justify-center">
+                                                <img class="pt-14 pb-5" src="assets/foto/Group 1597882678.png" alt="">
+                                            </div>
+                                            <h2 class="text-xl font-bold mb-5 max-sm:text-lg">Custom App/Plugins Development</h2>
+                                            <p class="text-lg mb-14 font-normal max-sm:text-sm">Start from 300 USD for project base or 35 USD
+                                                per hour</p>
+                                        </div>
+                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- POP UP BUTTON -->
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="hero lg:max-w-[700px] mx-auto relative">
+
+
+            <h1 class="font-base text-heading-1 font-bold text-center mt-10 leading-tight max-sm:text-2xl">It's Fun To
+                Build a Website
+                With The <label
+                    class="bg-gradient-to-r from-orange-500 via-pink-500 via-purple-500 to-cyan-400 text-transparent bg-clip-text">Mangcoding
+                    Team</label></h1>
+            <p class="text-center text-[#636363] my-3 max-sm:text-sm">The Mangcoding team will help build a website for
+                your company
+                with quality and guaranteed services, with custom templates you can create a website as you like.</p>
+            <div class="mb-5 action mx-auto flex justify-center items-center gap-5">
+                <a href="#" class="button-primary">Get Started</a>
+                <a href="#" class="underline flex items-center gap-2">
+                    Explore Our Blog
+                    <img src="assets/foto/arrow-right.svg" alt="">
+                </a>
+            </div>
+            <img src="assets/foto/thumbnail.png" alt="">
+        </section>
+    </header>
+
+    <!-- CONTAINER CONTENT 1 -->
+    <div class="container-content1 mb-12 ">
+        <h4 class="text-center mt-10 mb-3 text-lg font-semibold text-neutral-600 max-sm:text-sm">Brands that trust us
+        </h4>
+        <div class="flex justify-center items-center gap-10 mb-15 max-sm:w-12 max-sm:h-12 max-sm:ml-40 max-sm:gap-3">
+            <img src="assets/foto/image 1.png" alt="">
+            <img src="assets/foto/image 2.png" alt="">
+            <img src="assets/foto/image 3.png" alt="">
+            <img src="assets/foto/image 4.png" alt="">
+            <img src="assets/foto/Frame.png" alt="">
+            <img src="assets/foto/image 5.png" alt="">
+        </div>
+
+    </div>
+    <!-- bg-gradient-to-r from-cyan-100 via-pink-100 via-purple-100 to-orange-100 -->
+    <!-- CONTAINER CONTENT 2 -->
+    <div class="bg-gradient-to-br from-cyan-100 via-pink-100 via-purple-100 to-orange-100 pt-28 pb-20">
+
+        <div class="container mx-auto">
+            <div class="flex gap-10 justify-between mx-auto items-center">
+                <div>
+                    <h1 class="text-4xl font-bold max-sm:text-xl">Services</h1>
+                </div>
+                <div>
+                    <button class="button-primary">Build Website</button>
+                </div>
+            </div>
+            <p class="mt-3 mb-10 text-base w-2/4 max-sm:text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Ut corporis
+                quaerat odit placeat animi laborum
+                ipsum quod provident perspiciatis sequi iste beatae, ad culpa vero nemo dicta cum modi ratione!</p>
+
+            <div class="grid grid-cols-3 grid-rows-2 gap-6 max-sm:gap-2 max-sm:grid-cols-2 max-sm:grid-rows-3">
+                <div
+                    class="bg-white text-black text-center text-5xl rounded-lg h-30 items-center object-center justify-items-center content-center">
+                    <div class="flex justify-center">
+                        <img class=" pt-14 pb-5 " src="assets/foto/Shopify logo.png" alt="">
+                    </div>
+                    <h2 class="text-xl font-bold mb-5 max-sm:text-lg">Shopify Theme Development</h2>
+                    <p class="text-lg mb-14 font-normal max-sm:mb-5 max-sm:text-sm">Start from 700 USD for project base
+                        or 35 USD per hour</p>
+                </div>
+                <div class="bg-white text-black text-center text-5xl rounded-lg h-30">
+                    <div class="flex justify-center">
+                        <img class="pt-14 pb-5" src="assets/foto/PHP logo.png" alt="">
+                    </div>
+                    <h2 class="text-xl font-bold mb-5 max-sm:text-lg">Web Application Development</h2>
+                    <p class="text-lg mb-14 font-normal max-sm:mb-5 max-sm:text-sm">Start from 1000 USD for project base
+                        or 35 USD per hour</p>
+                </div>
+                <div class="bg-white text-black text-center text-5xl rounded-lg h-30 row-span-2">
+                    <div class="flex justify-center">
+                        <img class="pt-12 pb-8" src="assets/foto/Group 1597882700.png" alt="">
+                    </div>
+                    <h2 class="text-2xl font-bold mb-5 max-sm:text-xl">Assistans Services</h2>
+                    <p class="text-lg font-normal mb-32">Start from 33 USD for project base or 35 USD per hour</p>
+                    <h5 class="text-xl font-normal text-neutral-500 mb-4 max-sm:text-lg">More Services :</h5>
+                    <h5 class="text-xl font-bold max-sm:text-lg">Technical Assistans</h5>
+                    <h5 class="text-xl font-bold max-sm:text-lg">Support Assistans</h5>
+                    <h5 class="text-xl font-bold max-sm:text-lg">VIP Assistans</h5>
+                    <h5 class="text-xl font-bold max-sm:text-lg">Social Media Admin</h5>
+                </div>
+                <div class="bg-white text-black text-center text-5xl rounded-lg h-30">
+                    <div class="flex justify-center">
+                        <img class="pt-14 pb-5" src="assets/foto/wordpress-lockup logo.png" alt="">
+                    </div>
+
+                    <h2 class="text-xl font-bold mb-5 max-sm:text-lg">WordPress Theme Development</h2>
+                    <p class="text-lg mb-14 font-normal max-sm:text-sm">Start from 600 USD for project base or 35 USD
+                        per hour</p>
+                </div>
+                <div class="bg-white text-black text-center text-5xl rounded-lg h-30">
+                    <div class="flex justify-center">
+                        <img class="pt-14 pb-5" src="assets/foto/Group 1597882678.png" alt="">
+                    </div>
+                    <h2 class="text-xl font-bold mb-5 max-sm:text-lg">Custom App/Plugins Development</h2>
+                    <p class="text-lg mb-14 font-normal max-sm:text-sm">Start from 300 USD for project base or 35 USD
+                        per hour</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTAINER CONTENT 3 -->
+    <div class="container mx-auto pb-32">
+        <h1 class="text-center pt-32 font-bold text-4xl max-sm:text-2xl">What we do</h1>
+        <p class=" text-center font-normal text-sm pt-2.5 ">Lörem ipsum patev antifili astrokålonat. Vanat aheten.
+            Ekofiering makrora, <br> på trekavis. Makrona tregät plang. Bekässade kast, eftersom sore. </p>
+
+        <div class="relative">
+            <div class="pt-36 pl-72 absolute bottom-44">
+                <img src="assets/foto/Line 40.png" alt="">
+            </div>
+            <div class="container flex items-center gap-48 pl-48 pt-20 max-sm:gap-5 max-sm:pl-5">
+                <div>
+                    <img src="assets/foto/Frame 1921.png" alt="">
+                    <h3 class="text-center mt-11 text-lg font-bold max-sm:text-sm">Design</h3>
+
+                </div>
+                <div>
+                    <img src="assets/foto/Frame 1922.png" alt="">
+                    <h3 class="text-center mt-11 text-lg font-bold max-sm:text-sm">Front-end</h3>
+                </div>
+                <div>
+                    <img src="assets/foto/Frame 1923.png" alt="">
+                    <h3 class="text-center mt-11 text-lg font-bold max-sm:text-sm">Back-end</h3>
+                </div>
+                <div>
+                    <img src="assets/foto/Frame 1924.png" alt="">
+                    <h3 class="text-center mt-11 text-lg font-bold max-sm:text-sm">Check Test</h3>
+                </div>
+            </div>
+
+
+
+            <div class="flex px-40 gap-24 pt-3.5 items-center text-neutral-700 max-sm:px-2 max-sm:gap-3">
+                <p class="text-center text-sm font-normal w-56 max-sm:text-xs">Create Wireframe Display Designs And
+                    Initial UI Designs
+                    For Websites</p>
+                <p class="text-center text-sm font-normal w-56 max-sm:text-xs">Create Wireframe Display Designs And
+                    Initial UI Designs
+                    For Websites</p>
+                <p class="text-center text-sm font-normal w-56 max-sm:text-xs">Create Wireframe Display Designs And
+                    Initial UI Designs
+                    For Websites</p>
+                <p class="text-center text-sm font-normal w-56 max-sm:text-xs">Create Wireframe Display Designs And
+                    Initial UI Designs
+                    For Websites</p>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div>
+            <h1 class="text-center pt-32 font-bold text-3xl max-sm:text-2xl">Our work</h1>
+            <p class=" text-center font-normal text-sm pt-3 ">Lörem ipsum patev antifili astrokålonat. Vanat aheten.
+                Ekofiering makrora,</p>
+
+            <div class=" grid grid-cols-1 grid-rows-2 ">
+                <div class="flex flex-col lg:flex-row justify-center gap-10 bg-white text-black rounded-lg h-30">
+                    <div>
+                        <img class="pt-14 pb-3.5" src="assets/foto/Frame 100.png" alt="">
+                        <h2 class=" text-2xl font-bold mb-5">Retainer Orely Studio</h2>
+                        <p class="text-sm mb-8 font-normal text-neutral-500">https://retainer.orely.co/</p>
+                        <div class="flex gap-3">
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">WordPress</button>
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">Tailwind</button>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <img class=" pt-14 pb-3.5" src="assets/foto/Frame 101.png" alt="">
+                        <h2 class="text-2xl font-bold mb-5">Beacukai Sangatta</h2>
+                        <p class="text-sm mb-8 font-normal text-neutral-500">https://bcsangatta.beacukai.go.id/</p>
+                        <div class="flex gap-3">
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">WordPress</button>
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">Tailwind</button>
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">Design</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex flex-col lg:flex-row justify-center gap-10 bg-white text-black rounded-lg h-30">
+                    <div>
+                        <img class="pt-14 pb-3.5" src="assets/foto/Frame 102.png" alt="">
+                        <h2 class=" text-2xl font-bold mb-5">Federasi Ice Skating Indonesia</h2>
+                        <p class="text-sm mb-8 font-normal text-neutral-500">https://fisid.org/</p>
+                        <div class="flex gap-3">
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">WordPress</button>
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">Tailwind</button>
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">Design</button>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <img class=" pt-14 pb-3.5" src="assets/foto/Frame 100.png" alt="">
+                        <h2 class="text-2xl font-bold mb-5">Retainer Orely Studio</h2>
+                        <p class="text-sm mb-8 font-normal text-neutral-500">https://retainer.orely.co/</p>
+                        <div class="flex gap-3">
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">WordPress</button>
+                            <button class="text-sm font-medium border-2 border-zinc-300 py-1 px-6">Tailwind</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="flex justify-center pt-8 ">
+                <button class="button-primary items-center flex justify-center align-center object-center">Our
+                    Work</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CONTAINER CONTENT 4 -->
+    <div class="bg-blue-100 pb-14">
+        <div class="content3 w-full flex justify-center text-center pt-20 font-bold text-3xl max-sm:text-2xl mb-12">
+            <h1 class="w-96">
+                <label
+                    class="bg-gradient-to-r from-cyan-500 via-purple-500 via-pink-600 to-orange-600 text-transparent bg-clip-text"
+                    for="">What people say about
+                </label>
+                <label> Mangcoding Team?</label>
+            </h1>
+        </div>
+        <div class="w-full flex justify-center">
+            <h1 class="items-center text-center font-normal text-3xl max-sm:text-2xl w-1/3 max-sm:w-96">“ It was a great experience to work with
+                Mangcoding, we love the details result, and professionalism.“</h1>
+        </div>
+
+        <div class="flex justify-center mt-12">
+            <img src="assets/foto/image 16.png" alt="">
+        </div>
+        <h3 class="text-center font-bold text-base mt-5">Riko Sapto Dimo</h3>
+        <p class="text-center font-normal text-sm mt-1 text-neutral-600">Managing Director Orely.co</p>
+        <div class="flex justify-center mt-12">
+            <img src="assets/foto/Group 1597882728.png" alt="">
+        </div>
+
+
+
+    </div>
+
+    <!-- CONTAINER CONTENT 5 -->
+    <div class="container mx-auto pt-20 pb-20">
+        <h1 class="text-center text-3xl max-sm:text-2xl font-bold">Our Blog</h1>
+
+        <div class="grid grid-cols-1 grid-rows-1 ">
+            <div class="flex flex-col lg:flex-row justify-center gap-6 bg-white text-black rounded-lg h-30">
+                <div>
+                    <img class="pt-14 pb-3.5" src="assets/foto/image 19.png" alt="">
+                    <h2 class=" text-xl font-bold ">8 Alasan Pentingnya Melakukan Pencadangan Situs Web</h2>
+
+
+                </div>
+
+                <div>
+                    <img class=" pt-14 pb-3.5" src="assets/foto/image 20.png" alt="">
+                    <h2 class="text-xl font-bold ">8 Alasan Pentingnya Melakukan Pencadangan Situs Web</h2>
+
+
+                </div>
+
+                <div>
+                    <img class=" pt-14 pb-3.5" src="assets/foto/image 21.png" alt="">
+                    <h2 class="text-xl font-bold ">8 Alasan Pentingnya Melakukan Pencadangan Situs Web</h2>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="flex justify-center mt-14">
+            <button class="button-primary items-center flex justify-center align-center object-center">Our Work</button>
+        </div>
+    </div>
+
+    <!-- CONTAINER 6 -->
+    <div class="bg-gradient-to-r from-lime-100 via-pink-100 via-lime-100 via-orange-100 via-lime-100 to-pink-100 pt-20">
+        <div class="container mx-auto ">
+            <div class="flex gap-10 justify-between mx-auto items-center">
+                <div>
+                    <h1 class="text-3xl max-sm:text-xl font-bold">Let's build a website with mangcoding</h1>
+                </div>
+                <div>
+                    <button class="button-primary max-sm:text-xs ">Build Website Now</button>
+                </div>
+            </div>
+
+            <p class="text-lg max-sm:text-sm font-normal pb-20 text-neutral-600">Mangcoding team will help you in branding your product
+            </p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer class="p-16 max-sm:p-10">
+
+        <div class="grid grid-cols-1 grid-rows-1 ">
+            <div class="flex flex-col lg:flex-row justify-center gap-6 bg-white text-black rounded-lg h-30">
+
+                <div>
+                    <div class="flex gap-3 align-center items-center mb-10">
+                        <img src="assets/foto/logo.svg" alt="">
+                        <h1 class="font-bold text-xl">Mangcoding</h1>
+                    </div>
+                    <p class="font-normal text-sm max-sm:text-xm text-neutral-600 w-72">Mangcoding Team Will Help You In Branding Your
+                        Product asdMangcoding Team Will Help You In Branding Your Product asdMangcoding Team Will Help.
+                    </p>
+                    <div class="flex gap-8 mt-12">
+                        <img src="assets/foto/Frame 1597882717.png" alt="">
+                        <img src="assets/foto/Frame 1597882718.png" alt="">
+                        <img src="assets/foto/Frame 1597882719.png" alt="">
+                        <img src="assets/foto/Frame 1597882720.png" alt="">
+                    </div>
+
+                </div>
+
+                <div>
+                    <h1 class="font-bold text-sm max-sm:text-lg mb-6 ">Mangcoding</h1>
+                    <ul class="max-sm:flex max-sm:gap-3 max-sm:w-5 text-neutral-600 list-none max-sm:text-xs">
+                        <li class=""><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Services</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Work</a></li>
+                        <li><a href="">Resource</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                    <!-- <p class="w-5 text-neutral-600">Home About Services Blog Work Resource Contact</p> -->
+
+                </div>
+
+                <div class="max-sm:hidden">
+                    <h1 class="font-bold text-sm max-sm:text-lg mb-6 ">Services</h1>
+                    <p class="w-72 text-neutral-600">Custom WordPress Theme Development <br> Custom Plugin WordPress
+                        <br> Custom Shopify Theme Development <br> Custom App for Shopify <br> Web Application</p>
+                </div>
+                <div>
+                    <h1 class="font-bold text-sm max-sm:text-lg mb-6 ">Trusted partner</h1>
+                    <div class="max-sm:flex max-sm:gap-6 ">
+                        <img class="mb-4" src="assets/foto/Group 1597882743.png" alt="">
+                        <img class="max-sm:h-10" src="assets/foto/image 24.png" alt="">
+                    </div>
+                   
+
+                </div>
+
+                <div>
+                    <h1 class="font-bold text-sm max-sm:text-lg mb-6 ">Services</h1>
+                    <div class="flex gap-4 items-center mb-4">
+                        <img class="h-3.5" src="assets/foto/Vector (1).png" alt="">
+                        <p class="text-neutral-600">hello@mangcoding.com</p>
+                    </div>
+
+                    <div class="flex gap-4 items-center mb-4">
+                        <img src="assets/foto/Vector (2).png" alt="">
+                        <p class="w-40 text-neutral-600">0266-6532078 WA:0857-5940-2332</p>
+                    </div>
+
+                    <div class="flex gap-4 items-center">
+                        <img class="" src="assets/foto/Vector (3).png" alt="">
+                        <p class="w-60 text-neutral-600">PT Anugrah Kreasi Digital. karang tengah, Cibadak - Sukabumi
+                        </p>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <h1 class="text-center text-neutral-600 mt-20 mb-6 font-normal text-sm">© 2022 Mangcoding. All rights
+                reserved.</h1>
+        </div>
+    </footer>
+
+
+
+    <script src="hamburger.js" type="application/javascript"></script>
+    <script src="search.js" type="application/javascript"></script>
+    <script src="modal.js" type="application/javascript"></script>
+</body>
+
+</html>
